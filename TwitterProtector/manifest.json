@@ -1,0 +1,22 @@
+{
+    "name": "QR Code maker",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Makeing qr code",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://twitter.com/*"
+            ],
+            "js": [
+                "src/main.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup/index.html"
+    }
+}

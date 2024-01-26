@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            width: 400px;
+            height: 250px;
+        }
+        /* === ボタンを表示するエリア ============================== */
+        .switchArea {
+            line-height: 36px;
+            /* 1行の高さ          */
+            letter-spacing: 0;
+            /* 文字間             */
+            text-align: center;
+            /* 文字位置は中央     */
+            font-size: 15px;
+            /* 文字サイズ         */
+
+            position: relative;
+            /* 親要素が基点       */
+            display: inline-block;
+            width: 71px;
+            /* ボタンの横幅       */
+            background: #fff;
+            /* デフォルト背景色   */
+        }
+
+        /* === チェックボックス ==================================== */
+        .switchArea input[type="checkbox"] {
+            display: none;
+            /* チェックボックス非表示 */
+            width: 10px;
+        }
+
+        /* === チェックボックスのラベル（標準） ==================== */
+        .switchArea label {
+            display: block;
+            /* ボックス要素に変更 */
+            box-sizing: border-box;
+            /* 枠線を含んだサイズ */
+            height: 36px;
+            /* ボタンの高さ       */
+            border: 2px solid #999999;
+            /* 未選択タブのの枠線 */
+            border-radius: 18px;
+            /* 角丸               */
+        }
+
+        /* === チェックボックスのラベル（ONのとき） ================ */
+        .switchArea input[type="checkbox"]:checked+label {
+            border-color: #66ff66;
+            /* 選択タブの枠線     */
+        }
+
+        /* === 表示する文字（標準） ================================ */
+        .switchArea label span:after {
+            content: "OFF";
+            /* 表示する文字       */
+            padding: 0 0 0 21px;
+            /* 表示する位置       */
+            color: #999999;
+            /* 文字色             */
+        }
+
+        /* === 表示する文字（ONのとき） ============================ */
+        .switchArea input[type="checkbox"]:checked+label span:after {
+            content: "ON";
+            /* 表示する文字       */
+            padding: 0 21px 0 0;
+            /* 表示する位置       */
+            color: #66ff66;
+            /* 文字色             */
+        }
+
+        /* === 丸部分のSTYLE（標準） =============================== */
+        .switchArea #swImg {
+            position: absolute;
+            /* 親要素からの相対位置*/
+            width: 28px;
+            /* 丸の横幅           */
+            height: 28px;
+            /* 丸の高さ           */
+            background: #999999;
+            /* カーソルタブの背景 */
+            top: 4px;
+            /* 親要素からの位置   */
+            left: 4px;
+            /* 親要素からの位置   */
+            border-radius: 14px;
+            /* 角丸               */
+            transition: .2s;
+            /* 滑らか変化         */
+        }
+
+        /* === 丸部分のSTYLE（ONのとき） =========================== */
+        .switchArea input[type="checkbox"]:checked~#swImg {
+            transform: translateX(35px);
+            /* 丸も右へ移動       */
+            background: #66ff66;
+            /* カーソルタブの背景 */
+        }
+        .rap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./popup.js" defer></script>
+    <section id="cam" style="display: inline;">
+        <h2>Make qr code</h2>
+        <span>Enter url here:</span><input type="text" id="url"><br>
+        <img id="qr"><br>
+        <button id="make">Make QR</button>
+    </section>
+    <section id="protect" style="display: none;">
+        <h2>Protector settings</h2>
+        <div class="rap">
+            <span>Protect</span>
+            <div class="switchArea">
+                <input type="checkbox" id="switch1">
+                <label for="switch1"><span></span></label>
+                <div id="swImg"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
