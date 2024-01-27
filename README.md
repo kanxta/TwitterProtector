@@ -4,8 +4,7 @@ MITライセンスです。
 改変する際はかならずライセンス表記と著作権表示が必要です。  
 
 # 使い方
-[release][
-(https://github.com/kanxta/TwitterProtector/releases)からzipをDLし、解凍し、Google chromeに拡張機能として登録してください。  
+[release](https://github.com/kanxta/TwitterProtector/releases)からzipをDLし、解凍し、Google chromeに拡張機能として登録してください。  
 `chrome://extensions`でデベロッパーモードをonにすると登録できます。詳しくはggってください。　　
 ちなみにロックの情報はあなたのgoogleアカウントに保存されるため、複数のデバイスでロックの状態を同期することができます。ただし、ほかのデバイスですでにサイトを開いていた場合、何らかの要因によってリロードされたときにロックされます。  
 
