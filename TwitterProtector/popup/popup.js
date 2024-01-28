@@ -33,27 +33,28 @@ function showhide() {
 document.getElementById("switch1").onchange = () => {
     if (document.getElementById("switch1").checked) {
         let password = prompt("Set password....");
-        while(password == null || password == "") {
+        while (password == null || password == "") {
             password = prompt("Set password....\nError!");
         }
         save(password);
     } else {
         chrome.storage.sync.get((data) => {
             let password = prompt("Enter password....");
-            while(password == null || password == "") {
+            while (password == null || password == "") {
                 password = prompt("Enter password....\nError!");
             }
-            if (password == data.password) {
-                chrome.storage.sync.set({ "protect": false, "password": null }, () => {
-                    return;
-                });
+            while (password != data.password) {
+                password = prompt("Enter password....\nError!");
             }
+            chrome.storage.sync.set({ "protect": false, "password": null }, () => {
+                return;
+            });
         })
     }
 }
 
 //save 
-function save (pass) {
+function save(pass) {
     chrome.storage.sync.set({ "protect": true, "password": pass }, () => {
         return;
     });
