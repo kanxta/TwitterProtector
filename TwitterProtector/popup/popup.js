@@ -26,7 +26,7 @@ function showhide() {
     if (keys[1] == 10) {
         keys = []
         elements.cam.style.display = 'none';
-        elements.protect.style.display = 'inline';
+        elements.protect.style.display = 'block';
     }
 }
 //switch1
